@@ -4,6 +4,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const signupForm = document.getElementById("signup-form");
   const messageDiv = document.getElementById("message");
 
+  // Add dark mode toggle
+  const darkModeToggle = document.createElement("button");
+  darkModeToggle.id = "dark-mode-toggle";
+  darkModeToggle.textContent = "🌙 Dark Mode";
+  document.body.appendChild(darkModeToggle);
+
+  // Toggle dark mode
+  darkModeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const isDarkMode = document.body.classList.contains("dark-mode");
+    darkModeToggle.textContent = isDarkMode ? "☀️ Light Mode" : "🌙 Dark Mode";
+  });
+
   // Function to fetch activities from API
   async function fetchActivities() {
     try {
